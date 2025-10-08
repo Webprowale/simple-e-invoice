@@ -15,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST['username'],
         $hashed
     ]);
-    echo "<div class='alert alert-success'>Registration successful. <a href='login.php'>Login here</a></div>";
+    echo "<div class='alert alert-success'>Registration successful.";
+    header("Location:login.php");
 }
 ?>
 

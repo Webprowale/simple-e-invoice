@@ -1,13 +1,11 @@
 <?php
 include 'config.php';
-session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 include 'header.php';
 
-// Fetch invoice stats
 $stmt = $pdo->prepare("SELECT COUNT(*) as count, COALESCE(SUM(total_amount),0) as total FROM invoices WHERE business_id = ?");
 $stmt->execute([$_SESSION['user_id']]);
 $stats = $stmt->fetch();
