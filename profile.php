@@ -2,7 +2,6 @@
 include 'config.php';
 session_start();
 
-
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 if (!isset($_SESSION['user_id'])) {
@@ -67,12 +66,12 @@ include 'header.php';
           </div>
           <div class="mb-3">
             <label class="form-label">Tagline</label>
-            <input type="text" class="form-control" name="tagline" 
+            <input type="text" class="form-control" name="tagline"
                    value="<?= htmlspecialchars($user['tagline'] ?? '') ?>" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Address</label>
-            <input type="text" class="form-control" name="address" 
+            <input type="text" class="form-control" name="address"
                    value="<?= htmlspecialchars($user['address'] ?? '') ?>">
           </div>
           <div class="mb-3">

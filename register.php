@@ -1,5 +1,6 @@
 <?php
 include 'config.php';
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare(
@@ -15,8 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST['username'],
         $hashed
     ]);
-    echo "<div class='alert alert-success'>Registration successful.";
-    header("Location:login.php");
+    $newUserId = $pdo->lastInsertId();
+    $_SESSION['user_id'] = $newUserId;
+    header("Location: profile.php");
+    exit;
 }
 ?>
 
